@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Planet))]
-public class PlanetEditor : Editor
-{
+public class PlanetEditor : Editor {
+
     Planet planet;
     Editor shapeEditor;
-    Editor colorEditor;
+    Editor colourEditor;
 
-    public override void OnInspectorGUI()
-    {
+	public override void OnInspectorGUI()
+	{
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             base.OnInspectorGUI();
@@ -27,8 +27,8 @@ public class PlanetEditor : Editor
         }
 
         DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colorSettings, planet.OnColorSettingsUpdated, ref planet.colorSettingsFoldout, ref colorEditor);
-    }
+        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
+	}
 
     void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
     {
@@ -54,8 +54,8 @@ public class PlanetEditor : Editor
         }
     }
 
-    private void OnEnable()
-    {
+	private void OnEnable()
+	{
         planet = (Planet)target;
-    }
+	}
 }
