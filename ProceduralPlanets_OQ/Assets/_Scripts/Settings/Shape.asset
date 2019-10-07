@@ -23,25 +23,25 @@ MonoBehaviour:
       simpleNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.28211856
+        strength: 0.25325882
         minNumLayers: 4
-        maxNumLayers: 6
-        numLayers: 5
+        maxNumLayers: 5
+        numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.1439712
+        baseRoughness: 1.1237335
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.2453713
+        roughness: 2.3356955
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.4223329
+        persistence: 0.43941516
         minCentre: {x: 0, y: 0, z: 0}
-        maxCentre: {x: 10, y: 10, z: 10}
+        maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 1.11, y: 0.92, z: -0.39}
-        minMinValue: 0.2
-        maxMinValue: 1.5
-        minValue: 0.6575305
+        minMinValue: 0.8
+        maxMinValue: 1.2
+        minValue: 1.1524847
       ridgidNoiseSettings:
         minStrength: 0
         maxStrength: 0
@@ -96,25 +96,25 @@ MonoBehaviour:
       ridgidNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.2778344
+        strength: 0.25951585
         minNumLayers: 4
-        maxNumLayers: 6
-        numLayers: 5
+        maxNumLayers: 5
+        numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.0175531
+        baseRoughness: 1.1390076
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.4795227
+        roughness: 2.2494555
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.57541454
+        persistence: 0.48205364
         minCentre: {x: 0, y: 0, z: 0}
-        maxCentre: {x: 10, y: 10, z: 10}
+        maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 0, y: 0, z: 0}
-        minMinValue: 0.2
-        maxMinValue: 1.5
-        minValue: 0.8822823
+        minMinValue: 0.8
+        maxMinValue: 1.2
+        minValue: 1.1148424
         minWeightMultiplier: 0
         maxWeightMultiplier: 1
-        weightMultiplier: 0.31637436
+        weightMultiplier: 0.7639638
