@@ -17,7 +17,7 @@ MonoBehaviour:
     biomes:
     - gradient:
         serializedVersion: 2
-        key0: {r: 0.03737985, g: 0.092941254, b: 0.3773585, a: 1}
+        key0: {r: 0.22761661, g: 0.3333886, b: 0.8773585, a: 1}
         key1: {r: 0.16153437, g: 0.23741277, b: 0.6226415, a: 1}
         key2: {r: 0.36391956, g: 0.44842434, b: 0.8867924, a: 0}
         key3: {r: 0.2007832, g: 0.6854229, b: 0.9056604, a: 0}
@@ -26,10 +26,10 @@ MonoBehaviour:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 6398
-        ctime2: 15389
+        ctime1: 13660
+        ctime2: 24208
         ctime3: 32854
-        ctime4: 60780
+        ctime4: 55419
         ctime5: 65535
         ctime6: 0
         ctime7: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         ctime1: 6398
         ctime2: 15389
         ctime3: 32854
-        ctime4: 60780
+        ctime4: 57494
         ctime5: 65535
         ctime6: 65535
         ctime7: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
         ctime1: 6398
         ctime2: 15389
         ctime3: 32768
-        ctime4: 63806
+        ctime4: 57840
         ctime5: 65535
         ctime6: 0
         ctime7: 0
@@ -114,21 +114,51 @@ MonoBehaviour:
     noise:
       filterType: 0
       simpleNoiseSettings:
-        strength: 1
-        numLayers: 1
-        baseRoughness: 1
-        roughness: 2
-        persistence: 0.5
+        minStrength: 0
+        maxStrength: 0
+        strength: 0
+        minNumLayers: 0
+        maxNumLayers: 0
+        numLayers: 0
+        minBaseRoughness: 0
+        maxBaseRoughness: 0
+        baseRoughness: 0
+        minRoughness: 0
+        maxRoughness: 0
+        roughness: 0
+        minPersistence: 0
+        maxPersistence: 0
+        persistence: 0
+        minCentre: {x: 0, y: 0, z: 0}
+        maxCentre: {x: 0, y: 0, z: 0}
         centre: {x: 0, y: 0, z: 0}
+        minMinValue: 0
+        maxMinValue: 0
         minValue: 0
       ridgidNoiseSettings:
+        minStrength: 0
+        maxStrength: 0
         strength: 1
+        minNumLayers: 0
+        maxNumLayers: 0
         numLayers: 1
+        minBaseRoughness: 0
+        maxBaseRoughness: 0
         baseRoughness: 1
+        minRoughness: 0
+        maxRoughness: 0
         roughness: 2
+        minPersistence: 0
+        maxPersistence: 0
         persistence: 0.5
+        minCentre: {x: 0, y: 0, z: 0}
+        maxCentre: {x: 0, y: 0, z: 0}
         centre: {x: 0, y: 0, z: 0}
+        minMinValue: 0
+        maxMinValue: 0
         minValue: 0
+        minWeightMultiplier: 0
+        maxWeightMultiplier: 0
         weightMultiplier: 0.8
     noiseOffset: 1.77
     noiseStrength: 0.1

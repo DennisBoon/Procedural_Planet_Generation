@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fd0f94b54e0a643b5d1ffb5891137f, type: 3}
   m_Name: Shape
   m_EditorClassIdentifier: 
-  planetRadius: 7092.709
-  minPlanetRadius: 4000
+  planetRadius: 10000
+  minPlanetRadius: 10000
   maxPlanetRadius: 10000
   noiseLayers:
   - enabled: 1
@@ -22,26 +22,26 @@ MonoBehaviour:
       filterType: 0
       simpleNoiseSettings:
         minStrength: 0.01
-        maxStrength: 0.7
-        strength: 0.56803066
-        minNumLayers: 3
-        maxNumLayers: 5
-        numLayers: 3
+        maxStrength: 0.3
+        strength: 0.28211856
+        minNumLayers: 4
+        maxNumLayers: 6
+        numLayers: 5
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.0460532
+        baseRoughness: 1.1439712
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.1948848
+        roughness: 2.2453713
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.5538384
-        minCentre: {x: 1, y: 0, z: -1}
-        maxCentre: {x: 1.5, y: 1, z: 0}
+        persistence: 0.4223329
+        minCentre: {x: 0, y: 0, z: 0}
+        maxCentre: {x: 10, y: 10, z: 10}
         centre: {x: 1.11, y: 0.92, z: -0.39}
-        minMinValue: 0.95
-        maxMinValue: 0.99
-        minValue: 0.9688461
+        minMinValue: 0.2
+        maxMinValue: 1.5
+        minValue: 0.6575305
       ridgidNoiseSettings:
         minStrength: 0
         maxStrength: 0
@@ -95,26 +95,26 @@ MonoBehaviour:
         minValue: 0
       ridgidNoiseSettings:
         minStrength: 0.01
-        maxStrength: 0.7
-        strength: 0.41769204
-        minNumLayers: 3
-        maxNumLayers: 5
-        numLayers: 3
+        maxStrength: 0.3
+        strength: 0.2778344
+        minNumLayers: 4
+        maxNumLayers: 6
+        numLayers: 5
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.0748988
+        baseRoughness: 1.0175531
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.0618372
+        roughness: 2.4795227
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.49261767
-        minCentre: {x: 1, y: 0, z: -1}
-        maxCentre: {x: 1.5, y: 1, z: 0}
+        persistence: 0.57541454
+        minCentre: {x: 0, y: 0, z: 0}
+        maxCentre: {x: 10, y: 10, z: 10}
         centre: {x: 0, y: 0, z: 0}
-        minMinValue: 0.95
-        maxMinValue: 0.99
-        minValue: 0.9601067
-        minWeightMultiplier: 0.7
-        maxWeightMultiplier: 0.8
-        weightMultiplier: 0.7361032
+        minMinValue: 0.2
+        maxMinValue: 1.5
+        minValue: 0.8822823
+        minWeightMultiplier: 0
+        maxWeightMultiplier: 1
+        weightMultiplier: 0.31637436
