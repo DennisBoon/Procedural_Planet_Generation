@@ -23,25 +23,25 @@ MonoBehaviour:
       simpleNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.25325882
+        strength: 0.19470099
         minNumLayers: 4
         maxNumLayers: 5
         numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.1237335
+        baseRoughness: 1.1920316
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.3356955
+        roughness: 2.2146034
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.43941516
+        persistence: 0.521783
         minCentre: {x: 0, y: 0, z: 0}
         maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 1.11, y: 0.92, z: -0.39}
         minMinValue: 0.8
         maxMinValue: 1.2
-        minValue: 1.1524847
+        minValue: 0.85553163
       ridgidNoiseSettings:
         minStrength: 0
         maxStrength: 0
@@ -96,25 +96,25 @@ MonoBehaviour:
       ridgidNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.25951585
+        strength: 0.046116665
         minNumLayers: 4
         maxNumLayers: 5
         numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.1390076
+        baseRoughness: 1.0735878
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.2494555
+        roughness: 2.31175
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.48205364
+        persistence: 0.4895885
         minCentre: {x: 0, y: 0, z: 0}
         maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 0, y: 0, z: 0}
         minMinValue: 0.8
         maxMinValue: 1.2
-        minValue: 1.1148424
+        minValue: 0.9672939
         minWeightMultiplier: 0
         maxWeightMultiplier: 1
-        weightMultiplier: 0.7639638
+        weightMultiplier: 0.9533951
