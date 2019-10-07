@@ -6,6 +6,7 @@ public class SimpleNoiseFilter : INoiseFilter {
 
     NoiseSettings.SimpleNoiseSettings settings;
     Noise noise = new Noise();
+    private bool sRandomizeSettings = false;
 
     public SimpleNoiseFilter(NoiseSettings.SimpleNoiseSettings settings)
     {
@@ -14,6 +15,17 @@ public class SimpleNoiseFilter : INoiseFilter {
 
     public float Evaluate(Vector3 point)
     {
+        if (!sRandomizeSettings)
+        {
+            settings.strength = Random.Range(settings.minStrength, settings.maxStrength);
+            settings.numLayers = Random.Range(settings.minNumLayers, settings.maxNumLayers);
+            settings.baseRoughness = Random.Range(settings.minBaseRoughness, settings.maxBaseRoughness);
+            settings.roughness = Random.Range(settings.minRoughness, settings.maxRoughness);
+            settings.persistence = Random.Range(settings.minPersistence, settings.maxPersistence);
+            settings.minValue = Random.Range(settings.minMinValue, settings.maxMinValue);
+            sRandomizeSettings = true;
+        }
+
         float noiseValue = 0;
         float frequency = settings.baseRoughness;
         float amplitude = 1;

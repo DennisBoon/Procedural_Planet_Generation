@@ -6,6 +6,7 @@ public class RidgidNoiseFilter : INoiseFilter {
 
     NoiseSettings.RidgidNoiseSettings settings;
     Noise noise = new Noise();
+    private bool rRandomizeSettings = false;
 
     public RidgidNoiseFilter(NoiseSettings.RidgidNoiseSettings settings)
     {
@@ -14,6 +15,18 @@ public class RidgidNoiseFilter : INoiseFilter {
 
     public float Evaluate(Vector3 point)
     {
+        if (!rRandomizeSettings)
+        {
+            settings.strength = Random.Range(settings.minStrength, settings.maxStrength);
+            settings.numLayers = Random.Range(settings.minNumLayers, settings.maxNumLayers);
+            settings.baseRoughness = Random.Range(settings.minBaseRoughness, settings.maxBaseRoughness);
+            settings.roughness = Random.Range(settings.minRoughness, settings.maxRoughness);
+            settings.persistence = Random.Range(settings.minPersistence, settings.maxPersistence);
+            settings.minValue = Random.Range(settings.minMinValue, settings.maxMinValue);
+            settings.weightMultiplier = Random.Range(settings.minWeightMultiplier, settings.maxWeightMultiplier);
+            rRandomizeSettings = true;
+        }
+
         float noiseValue = 0;
         float frequency = settings.baseRoughness;
         float amplitude = 1;
