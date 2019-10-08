@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fd0f94b54e0a643b5d1ffb5891137f, type: 3}
   m_Name: Shape
   m_EditorClassIdentifier: 
-  planetRadius: 10000
-  minPlanetRadius: 10000
-  maxPlanetRadius: 10000
+  planetRadius: 2938.9333
+  minPlanetRadius: 6000
+  maxPlanetRadius: 6000
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 0
@@ -23,25 +23,25 @@ MonoBehaviour:
       simpleNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.19470099
+        strength: 0.058962233
         minNumLayers: 4
         maxNumLayers: 5
         numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.1920316
+        baseRoughness: 1.0947771
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.2146034
+        roughness: 2.4844773
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.521783
+        persistence: 0.4785697
         minCentre: {x: 0, y: 0, z: 0}
         maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 1.11, y: 0.92, z: -0.39}
         minMinValue: 0.8
         maxMinValue: 1.2
-        minValue: 0.85553163
+        minValue: 0.8060377
       ridgidNoiseSettings:
         minStrength: 0
         maxStrength: 0
@@ -96,25 +96,25 @@ MonoBehaviour:
       ridgidNoiseSettings:
         minStrength: 0.01
         maxStrength: 0.3
-        strength: 0.046116665
+        strength: 0.092726275
         minNumLayers: 4
         maxNumLayers: 5
         numLayers: 4
         minBaseRoughness: 1
         maxBaseRoughness: 1.2
-        baseRoughness: 1.0735878
+        baseRoughness: 1.1307657
         minRoughness: 2
         maxRoughness: 2.5
-        roughness: 2.31175
+        roughness: 2.4404635
         minPersistence: 0.4
         maxPersistence: 0.6
-        persistence: 0.4895885
+        persistence: 0.56414783
         minCentre: {x: 0, y: 0, z: 0}
         maxCentre: {x: 100, y: 100, z: 100}
         centre: {x: 0, y: 0, z: 0}
         minMinValue: 0.8
         maxMinValue: 1.2
-        minValue: 0.9672939
+        minValue: 0.90173525
         minWeightMultiplier: 0
         maxWeightMultiplier: 1
-        weightMultiplier: 0.9533951
+        weightMultiplier: 0.28073305

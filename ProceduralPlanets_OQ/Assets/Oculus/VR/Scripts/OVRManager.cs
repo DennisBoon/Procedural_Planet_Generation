@@ -873,10 +873,10 @@ public class OVRManager : MonoBehaviour
 	/// be used. A colorScale of (1, 1, 1, 1) and colorOffset of (0, 0, 0, 0) will lead to an identity multiplication
 	/// and have no effect.
 	/// </summary>
-	public static void SetColorScaleAndOffset(Vector4 colorScale, Vector4 colorOffset, bool applyToAllLayers)
-	{
-		OVRPlugin.SetColorScaleAndOffset(colorScale, colorOffset, applyToAllLayers);
-	}
+	//public static void SetColorScaleAndOffset(Vector4 colorScale, Vector4 colorOffset, bool applyToAllLayers)
+	//{
+	//	OVRPlugin.SetColorScaleAndOffset(colorScale, colorOffset, applyToAllLayers);
+	//}
 
 	/// <summary>
 	/// Specifies OpenVR pose local to tracking space
