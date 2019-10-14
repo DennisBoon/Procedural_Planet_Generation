@@ -71,6 +71,7 @@ public class Planet : MonoBehaviour
             obj = Instantiate(this.gameObject, transform.position, transform.rotation);
             DestroyImmediate(obj.GetComponent<Planet>());
             LODLevelObjects.Add(obj);
+            Debug.Log(resolution);
         }
         LODLevelObjects.Add(this.gameObject);
     }
