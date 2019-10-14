@@ -26,11 +26,11 @@ public class PlanetEditor : Editor {
             planet.GeneratePlanet();
         }
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
+        DrawSettingsEditor(planet.shapeSettings, /**planet.OnShapeSettingsUpdated,**/ ref planet.shapeSettingsFoldout, ref shapeEditor);
+        DrawSettingsEditor(planet.colourSettings, /**planet.OnColourSettingsUpdated,**/ ref planet.colourSettingsFoldout, ref colourEditor);
 	}
 
-    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
+    void DrawSettingsEditor(Object settings, /**System.Action onSettingsUpdated,**/ ref bool foldout, ref Editor editor)
     {
         if (settings != null)
         {
@@ -42,13 +42,13 @@ public class PlanetEditor : Editor {
                     CreateCachedEditor(settings, null, ref editor);
                     editor.OnInspectorGUI();
 
-                    if (check.changed)
-                    {
-                        if (onSettingsUpdated != null)
-                        {
-                            onSettingsUpdated();
-                        }
-                    }
+                    //if (check.changed)
+                    //{
+                    //    if (onSettingsUpdated != null)
+                    //    {
+                    //        onSettingsUpdated();
+                    //    }
+                    //}
                 }
             }
         }

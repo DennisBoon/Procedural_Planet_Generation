@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-
     [Range(2, 256)]
-    public int resolution = 10;
+    public int[] resolutions;
+    private List<GameObject> LODLevelObjects = new List<GameObject>();
     public bool autoUpdate = true;
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
     public FaceRenderMask faceRenderMask;
@@ -33,34 +33,44 @@ public class Planet : MonoBehaviour
 
     void Initialize()
     {
-        shapeGenerator.UpdateSettings(shapeSettings);
-        colourGenerator.UpdateSettings(colourSettings);
-
-        if (meshFilters == null || meshFilters.Length == 0)
+        int resolution = 0;
+        for (int j = 0; j < resolutions.Length - 1; j++)
         {
-            meshFilters = new MeshFilter[6];
-        }
-        terrainFaces = new TerrainFace[6];
+            GameObject obj;
+            shapeGenerator.UpdateSettings(shapeSettings);
+            colourGenerator.UpdateSettings(colourSettings);
 
-        Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
-
-        for (int i = 0; i < 6; i++)
-        {
-            if (meshFilters[i] == null)
+            if (meshFilters == null || meshFilters.Length == 0)
             {
-                GameObject meshObj = new GameObject("mesh");
-                meshObj.transform.parent = transform;
-
-                meshObj.AddComponent<MeshRenderer>();
-                meshFilters[i] = meshObj.AddComponent<MeshFilter>();
-                meshFilters[i].mesh = new Mesh();
+                meshFilters = new MeshFilter[6];
             }
-            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
+            terrainFaces = new TerrainFace[6];
 
-            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].mesh, resolution, directions[i]);
-            bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
-            meshFilters[i].gameObject.SetActive(renderFace);
+            Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (meshFilters[i] == null)
+                {
+                    GameObject meshObj = new GameObject("mesh");
+                    meshObj.transform.parent = transform;
+
+                    meshObj.AddComponent<MeshRenderer>();
+                    meshFilters[i] = meshObj.AddComponent<MeshFilter>();
+                    meshFilters[i].mesh = new Mesh();
+                }
+                meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
+
+                terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].mesh, resolutions[resolution], directions[i]);
+                bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
+                meshFilters[i].gameObject.SetActive(renderFace);            
+            }
+            resolution++;
+            obj = Instantiate(this.gameObject, transform.position, transform.rotation);
+            DestroyImmediate(obj.GetComponent<Planet>());
+            LODLevelObjects.Add(obj);
         }
+        LODLevelObjects.Add(this.gameObject);
     }
 
     public void GeneratePlanet()
@@ -70,23 +80,23 @@ public class Planet : MonoBehaviour
         GenerateColours();
     }
 
-    public void OnShapeSettingsUpdated()
-    {
-        if (autoUpdate)
-        {
-            Initialize();
-            GenerateMesh();
-        }
-    }
+    //public void OnShapeSettingsUpdated()
+    //{
+    //    if (autoUpdate)
+    //    {
+    //        Initialize();
+    //        GenerateMesh();
+    //    }
+    //}
 
-    public void OnColourSettingsUpdated()
-    {
-        if (autoUpdate)
-        {
-            Initialize();
-            GenerateColours();
-        }
-    }
+    //public void OnColourSettingsUpdated()
+    //{
+    //    if (autoUpdate)
+    //    {
+    //        Initialize();
+    //        GenerateColours();
+    //    }
+    //}
 
     void GenerateMesh()
     {
