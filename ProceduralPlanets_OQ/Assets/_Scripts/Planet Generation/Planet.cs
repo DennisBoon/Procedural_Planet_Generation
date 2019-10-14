@@ -29,6 +29,7 @@ public class Planet : MonoBehaviour
 
     private void Start()
     {
+        LODLevelObjects.Clear();
         GeneratePlanet();
     }
 
