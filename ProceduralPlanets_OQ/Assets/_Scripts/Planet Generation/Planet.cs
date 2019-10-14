@@ -6,6 +6,7 @@ public class Planet : MonoBehaviour
 {
     [Range(2, 256)]
     public int[] resolutions;
+    [SerializeField]
     private List<GameObject> LODLevelObjects = new List<GameObject>();
     public bool autoUpdate = true;
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
