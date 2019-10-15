@@ -2389,7 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3884b180c7be13746adf11b29d60caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateTime: 0.005
+  rotateTime: 0.05
 --- !u!114 &2070996010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,13 +2406,13 @@ MonoBehaviour:
   - {fileID: 7694280920637478849, guid: d73e3b6bed99a264fb904a6574b47ac9, type: 3}
   - {fileID: 3767438136405462025, guid: d834be66984b5f74a805c7115760c9d5, type: 3}
   - {fileID: 2871662574501436815, guid: 4c82a586ca7f247488e02fd7ebc70144, type: 3}
-  cubeDensity: 200
+  cubeDensity: 0
   seed: 0
-  innerRadius: 25
-  outerRadius: 35
+  innerRadius: 3500
+  outerRadius: 5500
   height: 5
   rotatingClockwise: 1
-  minOrbitSpeed: 1
-  maxOrbitSpeed: 1.5
-  minRotationSpeed: 1
-  maxRotationSpeed: 1
+  minOrbitSpeed: 0.00001
+  maxOrbitSpeed: 0.000015
+  minRotationSpeed: 0.1
+  maxRotationSpeed: 0.1
