@@ -68,10 +68,13 @@ public class Planet : MonoBehaviour
                 meshFilters[i].gameObject.SetActive(renderFace);            
             }
             resolution++;
-            obj = Instantiate(this.gameObject, transform.position, transform.rotation);
-            DestroyImmediate(obj.GetComponent<Planet>());
-            LODLevelObjects.Add(obj);
             Debug.Log(resolution);
+            if (resolutions.Length <= 1)
+            {
+                obj = Instantiate(this.gameObject, transform.position, transform.rotation);
+                DestroyImmediate(obj.GetComponent<Planet>());
+                LODLevelObjects.Add(obj);
+            }
         }
         LODLevelObjects.Add(this.gameObject);
     }
