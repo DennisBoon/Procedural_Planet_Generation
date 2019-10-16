@@ -6,8 +6,6 @@ public class Planet : MonoBehaviour
 {
     [Range(2, 256)]
     public int[] resolutions;
-    [SerializeField]
-    private List<GameObject> LODLevelObjects = new List<GameObject>();
     public bool autoUpdate = true;
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
     public FaceRenderMask faceRenderMask;
@@ -22,6 +20,7 @@ public class Planet : MonoBehaviour
 
     ShapeGenerator shapeGenerator = new ShapeGenerator();
     ColourGenerator colourGenerator = new ColourGenerator();
+    LODSelector lodSelector;
 
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
@@ -29,7 +28,8 @@ public class Planet : MonoBehaviour
 
     private void Start()
     {
-        LODLevelObjects.Clear();
+        lodSelector = this.GetComponent<LODSelector>();
+        lodSelector.LODLevelObjects.Clear();
         GeneratePlanet();
     }
 
@@ -69,14 +69,14 @@ public class Planet : MonoBehaviour
             }
             resolution++;
             Debug.Log(resolution);
-            if (resolutions.Length <= 1)
+            if (resolutions.Length > 2)
             {
                 obj = Instantiate(this.gameObject, transform.position, transform.rotation);
                 DestroyImmediate(obj.GetComponent<Planet>());
-                LODLevelObjects.Add(obj);
+                lodSelector.LODLevelObjects.Add(obj);
             }
         }
-        LODLevelObjects.Add(this.gameObject);
+        lodSelector.LODLevelObjects.Add(this.gameObject);
     }
 
     public void GeneratePlanet()
