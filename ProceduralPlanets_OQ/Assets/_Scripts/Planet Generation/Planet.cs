@@ -38,7 +38,6 @@ public class Planet : MonoBehaviour
         int resolution = 0;
         for (int j = 0; j < resolutions.Length; j++)
         {
-            GameObject obj;
             shapeGenerator.UpdateSettings(shapeSettings);
             colourGenerator.UpdateSettings(colourSettings);
 
@@ -60,9 +59,8 @@ public class Planet : MonoBehaviour
                     meshObj.AddComponent<MeshRenderer>();
                     meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                     meshFilters[i].mesh = new Mesh();
-                }
+                }   
                 meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
-
                 terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].mesh, resolutions[resolution], directions[i]);
                 bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
                 meshFilters[i].gameObject.SetActive(renderFace);            
@@ -70,9 +68,7 @@ public class Planet : MonoBehaviour
 
             if (resolutions.Length >= j)
             {
-                obj = Instantiate(this.gameObject, transform.position, transform.rotation);
-                DestroyImmediate(obj.GetComponent<Planet>());
-                lodSelector.LODLevelObjects.Add(obj);
+                CreateLODLevel();
             }
             Debug.Log(resolution);
             resolution++;
@@ -128,5 +124,13 @@ public class Planet : MonoBehaviour
                 terrainFaces[i].UpdateUVs(colourGenerator);
             }
         }
+    }
+
+    void CreateLODLevel()
+    {
+        GameObject obj;
+        obj = Instantiate(this.gameObject, transform.position, transform.rotation);
+        DestroyImmediate(obj.GetComponent<Planet>());
+        lodSelector.LODLevelObjects.Add(obj);
     }
 }
