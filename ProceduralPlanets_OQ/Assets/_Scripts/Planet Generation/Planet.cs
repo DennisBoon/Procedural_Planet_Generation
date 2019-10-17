@@ -28,7 +28,7 @@ public class Planet : MonoBehaviour
 
     private void Start()
     {
-        lodSelector = this.GetComponent<LODSelector>();
+        lodSelector = transform.parent.GetComponent<LODSelector>();
         lodSelector.LODLevelObjects.Clear();
         GeneratePlanet();
     }
@@ -36,7 +36,7 @@ public class Planet : MonoBehaviour
     void Initialize()
     {
         int resolution = 0;
-        for (int j = 0; j < resolutions.Length - 1; j++)
+        for (int j = 0; j < resolutions.Length; j++)
         {
             GameObject obj;
             shapeGenerator.UpdateSettings(shapeSettings);
@@ -67,16 +67,17 @@ public class Planet : MonoBehaviour
                 bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
                 meshFilters[i].gameObject.SetActive(renderFace);            
             }
-            resolution++;
-            Debug.Log(resolution);
-            if (resolutions.Length > 2)
+
+            if (resolutions.Length >= j)
             {
                 obj = Instantiate(this.gameObject, transform.position, transform.rotation);
                 DestroyImmediate(obj.GetComponent<Planet>());
                 lodSelector.LODLevelObjects.Add(obj);
             }
+            Debug.Log(resolution);
+            resolution++;
         }
-        lodSelector.LODLevelObjects.Add(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public void GeneratePlanet()
