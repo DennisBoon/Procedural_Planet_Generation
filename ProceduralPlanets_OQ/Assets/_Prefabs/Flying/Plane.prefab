@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &8645126736593386701
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292357073681165735}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 10
+  m_AngularDrag: 10
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!65 &8645126736593386700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292357073681165735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.012584615, z: 0.0050000004}
+  m_Center: {x: -0.0000074611744, y: 0.0037969803, z: 0.0000000054747766}
 --- !u!1 &8645126736775995887
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,11 +461,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7075114221550731910, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+        type: 3}
+      propertyPath: Plane
+      value: 
+      objectReference: {fileID: 8645126737134581609}
+    - target: {fileID: 7075114221550731910, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+        type: 3}
+      propertyPath: Fs
+      value: 
+      objectReference: {fileID: 7989986533190100974}
+    - target: {fileID: 6066188394550323169, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+        type: 3}
+      propertyPath: throttle
+      value: 
+      objectReference: {fileID: 7989986533190100974}
+    - target: {fileID: 6066188394550323169, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+        type: 3}
+      propertyPath: steer
+      value: 
+      objectReference: {fileID: 2292357073681165735}
+    - target: {fileID: 5272638122300837473, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 118
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ba03e59458cdf4b96afd11e7e08f09, type: 3}
 --- !u!4 &8645126738395561619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7378280651456309621, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1269245298727491558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2292357073681165735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1030573636666407489, guid: d2ba03e59458cdf4b96afd11e7e08f09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1269245298727491558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7989986533190100974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9187169193090347016, guid: d2ba03e59458cdf4b96afd11e7e08f09,
     type: 3}
   m_PrefabInstance: {fileID: 1269245298727491558}
   m_PrefabAsset: {fileID: 0}
@@ -494,10 +560,6 @@ PrefabInstance:
     - target: {fileID: 463470, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
-      propertyPath: EnableBody
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: CanOwnMicrophone
@@ -683,12 +745,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 8645126737134581613}
     m_Modifications:
     - target: {fileID: 2015248, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: m_HDR
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015248, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: far clip plane
       value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015248, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_HDR
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Name
@@ -755,20 +817,14 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 100000
       objectReference: {fileID: 0}
-    - target: {fileID: 20131489337305086, guid: ce816f2e6abb0504092c23ed9b970dfd,
-        type: 3}
-      propertyPath: m_TargetEye
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 20504667576486672, guid: ce816f2e6abb0504092c23ed9b970dfd,
         type: 3}
       propertyPath: far clip plane
       value: 100000
       objectReference: {fileID: 0}
-    - target: {fileID: 20504667576486672, guid: ce816f2e6abb0504092c23ed9b970dfd,
-        type: 3}
-      propertyPath: m_TargetEye
-      value: 2
+    - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: useRecommendedMSAALevel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: _trackingOriginType
@@ -778,17 +834,9 @@ PrefabInstance:
       propertyPath: resetTrackerOnLoad
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: useRecommendedMSAALevel
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: Acceleration
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: GravityModifier
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
