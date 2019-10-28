@@ -63,7 +63,7 @@ public class Planet : MonoBehaviour
                 meshFilters[i].GetComponent<MeshRenderer>().material = colourSettings.planetMaterial;
                 terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].mesh, resolutions[resolution], directions[i]);
                 bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
-                meshFilters[i].gameObject.SetActive(renderFace);            
+                meshFilters[i].gameObject.SetActive(renderFace);
             }
 
             if (resolutions.Length >= j)

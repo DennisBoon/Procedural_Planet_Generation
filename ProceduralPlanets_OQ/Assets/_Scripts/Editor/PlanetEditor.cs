@@ -16,16 +16,16 @@ public class PlanetEditor : Editor
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             base.OnInspectorGUI();
-            if (check.changed)
-            {
-                //planet.GeneratePlanet();
-            }
+            //if (check.changed)
+            //{
+            //    planet.GeneratePlanet();
+            //}
         }
 
-        if (GUILayout.Button("Generate Planet"))
-        {
-            //planet.GeneratePlanet();
-        }
+        //if (GUILayout.Button("Generate Planet"))
+        //{
+        //    planet.GeneratePlanet();
+        //}
 
         DrawSettingsEditor(planet.shapeSettings, /**planet.OnShapeSettingsUpdated,**/ ref planet.shapeSettingsFoldout, ref shapeEditor);
         DrawSettingsEditor(planet.colourSettings, /**planet.OnColourSettingsUpdated,**/ ref planet.colourSettingsFoldout, ref colourEditor);
