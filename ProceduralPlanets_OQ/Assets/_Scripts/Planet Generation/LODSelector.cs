@@ -14,7 +14,7 @@ public class LODSelector : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) > LODDistances[0])
         {
-            SwapLOD(LODLevelObjects[0]);
+            SwapLOD(LODLevelObjects[2]);
         }
         else if (Vector3.Distance(player.transform.position, transform.position) < LODDistances[0] &&
                 Vector3.Distance(player.transform.position, transform.position) > LODDistances[1])
@@ -24,7 +24,7 @@ public class LODSelector : MonoBehaviour
         else if (Vector3.Distance(player.transform.position, transform.position) < LODDistances[1] &&
                 Vector3.Distance(player.transform.position, transform.position) > LODDistances[2])
         {
-            SwapLOD(LODLevelObjects[2]);
+            SwapLOD(LODLevelObjects[0]);
         }
     }
 

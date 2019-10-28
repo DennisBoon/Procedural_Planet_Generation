@@ -23,11 +23,17 @@ public class Planet : MonoBehaviour
     LODSelector lodSelector;
 
     [SerializeField, HideInInspector]
-    MeshFilter[] meshFilters;
-    TerrainFace[] terrainFaces;
+    MeshFilter[][] meshFilters;
+    TerrainFace[][] terrainFaces;
+
+    int meshFilterArray = 0;
+    int terrainFaceArray = 0;
+    int destroyChilds = 0;
 
     private void Start()
     {
+        meshFilters = new MeshFilter[resolutions.Length][];
+        terrainFaces = new TerrainFace[resolutions.Length][];
         lodSelector = transform.parent.GetComponent<LODSelector>();
         lodSelector.LODLevelObjects.Clear();
         GeneratePlanet();
@@ -41,36 +47,33 @@ public class Planet : MonoBehaviour
             shapeGenerator.UpdateSettings(shapeSettings);
             colourGenerator.UpdateSettings(colourSettings);
 
-            if (meshFilters == null || meshFilters.Length == 0)
+            if (meshFilters[meshFilterArray] == null || meshFilters[meshFilterArray].Length == 0)
             {
-                meshFilters = new MeshFilter[6];
+                meshFilters[meshFilterArray] = new MeshFilter[6];
             }
-            terrainFaces = new TerrainFace[6];
+            terrainFaces[terrainFaceArray] = new TerrainFace[6];
 
             Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 
             for (int i = 0; i < 6; i++)
             {
-                if (meshFilters[i] == null)
+                if (meshFilters[meshFilterArray][i] == null)
                 {
                     GameObject meshObj = new GameObject("mesh");
                     meshObj.transform.parent = transform;
 
                     meshObj.AddComponent<MeshRenderer>();
-                    meshFilters[i] = meshObj.AddComponent<MeshFilter>();
-                    meshFilters[i].mesh = new Mesh();
+                    meshFilters[meshFilterArray][i] = meshObj.AddComponent<MeshFilter>();
+                    meshFilters[meshFilterArray][i].mesh = new Mesh();
                 }   
-                meshFilters[i].GetComponent<MeshRenderer>().material = colourSettings.planetMaterial;
-                terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].mesh, resolutions[resolution], directions[i]);
+                meshFilters[meshFilterArray][i].GetComponent<MeshRenderer>().material = colourSettings.planetMaterial;
+                terrainFaces[terrainFaceArray][i] = new TerrainFace(shapeGenerator, meshFilters[meshFilterArray][i].sharedMesh, resolutions[resolution], directions[i]);
                 bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
-                meshFilters[i].gameObject.SetActive(renderFace);
+                meshFilters[meshFilterArray][i].gameObject.SetActive(renderFace);
             }
 
-            if (resolutions.Length >= j)
-            {
-                CreateLODLevel();
-            }
-            Debug.Log(resolution);
+            CreateLODLevel();
+            meshFilterArray++;
             resolution++;
         }
         this.gameObject.SetActive(false);
@@ -79,8 +82,6 @@ public class Planet : MonoBehaviour
     public void GeneratePlanet()
     {
         Initialize();
-        GenerateMesh();
-        GenerateColours();
     }
 
     //public void OnShapeSettingsUpdated()
@@ -105,9 +106,9 @@ public class Planet : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            if (meshFilters[i].gameObject.activeSelf)
+            if (meshFilters[meshFilterArray][i].gameObject.activeSelf)
             {
-                terrainFaces[i].ConstructMesh();
+                terrainFaces[terrainFaceArray][i].ConstructMesh();
             }
         }
 
@@ -119,18 +120,30 @@ public class Planet : MonoBehaviour
         colourGenerator.UpdateColours();
         for (int i = 0; i < 6; i++)
         {
-            if (meshFilters[i].gameObject.activeSelf)
+            if (meshFilters[meshFilterArray][i].gameObject.activeSelf)
             {
-                terrainFaces[i].UpdateUVs(colourGenerator);
+                terrainFaces[terrainFaceArray][i].UpdateUVs(colourGenerator);
             }
         }
     }
 
     void CreateLODLevel()
     {
+        GenerateMesh();
+        GenerateColours();
         GameObject obj;
-        obj = Instantiate(this.gameObject, transform.position, transform.rotation);
+        obj = Instantiate(this.gameObject, this.transform.position, this.transform.rotation);
         DestroyImmediate(obj.GetComponent<Planet>());
+        obj.AddComponent<SphereCollider>();
         lodSelector.LODLevelObjects.Add(obj);
+
+        if (destroyChilds != 0)
+        {
+            for (int i = 0; i < destroyChilds; i++)
+            {
+                Destroy(obj.transform.GetChild(i).gameObject);
+            }
+        }
+        destroyChilds += 6;
     }
 }
