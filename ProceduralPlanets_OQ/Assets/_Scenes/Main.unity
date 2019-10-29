@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641254308}
   - component: {fileID: 641254309}
+  - component: {fileID: 641254310}
   m_Layer: 0
   m_Name: Planets
   m_TagString: Untagged
@@ -292,15 +293,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641254307}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb5a057159dae24e807a6327763e96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LODLevelObjects: []
-  player: {fileID: 229524293}
-  activeLOD: {fileID: 0}
-  LODDistances: 102700004c1d000088130000
+--- !u!205 &641254310
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641254307}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &1071307925
 GameObject:
   m_ObjectHideFlags: 0

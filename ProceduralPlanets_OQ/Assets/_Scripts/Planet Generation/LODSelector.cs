@@ -5,36 +5,39 @@ using UnityEngine;
 public class LODSelector : MonoBehaviour
 {
     public List<GameObject> LODLevelObjects = new List<GameObject>();
-    public GameObject player;
-    [SerializeField]
-    private GameObject activeLOD;
-    public int[] LODDistances;
+    GameObject[][] childGameObjects;
+    LODGroup group;
 
-    private void Update()
+    private void Start()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) > LODDistances[0])
-        {
-            SwapLOD(LODLevelObjects[2]);
-        }
-        else if (Vector3.Distance(player.transform.position, transform.position) < LODDistances[0] &&
-                Vector3.Distance(player.transform.position, transform.position) > LODDistances[1])
-        {
-            SwapLOD(LODLevelObjects[1]);
-        }
-        else if (Vector3.Distance(player.transform.position, transform.position) < LODDistances[1] &&
-                Vector3.Distance(player.transform.position, transform.position) > LODDistances[2])
-        {
-            SwapLOD(LODLevelObjects[0]);
-        }
+        group = GetComponent<LODGroup>();
     }
 
-    void SwapLOD(GameObject obj)
+    public void CreateLODGroup()
     {
-        foreach (GameObject i in LODLevelObjects)
+        Debug.Log("CREATING LOD GROUP WITH " + LODLevelObjects.Count + " LOD LEVELS");
+        childGameObjects = new GameObject[LODLevelObjects.Count][];
+        Renderer[] allDrawables = new Renderer[6];
+        LOD[] lods = new LOD[LODLevelObjects.Count];
+        int lodLevel = LODLevelObjects.Count - 1, childGameObjectArray = 0;
+
+        for (int i = 0; i < LODLevelObjects.Count; i++)
         {
-            i.SetActive(false);
+            childGameObjects[childGameObjectArray] = new GameObject[6];
+
+            for (int j = 0; j < allDrawables.Length; j++)
+            {
+                childGameObjects[childGameObjectArray][j] = LODLevelObjects[childGameObjectArray].transform.GetChild(0).gameObject;
+                GameObject go = childGameObjects[childGameObjectArray][j];
+                go.transform.parent = gameObject.transform;
+                allDrawables[j] = go.GetComponent<MeshRenderer>();
+            }
+            lods[lodLevel].renderers = allDrawables;
+            lodLevel--; 
+            childGameObjectArray++;
         }
-        obj.SetActive(true);
-        activeLOD = obj;
+
+        group.SetLODs(lods);
+        group.RecalculateBounds();
     }
 }

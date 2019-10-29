@@ -76,6 +76,7 @@ public class Planet : MonoBehaviour
             meshFilterArray++;
             resolution++;
         }
+        lodSelector.CreateLODGroup();
         this.gameObject.SetActive(false);
     }
 
@@ -134,7 +135,7 @@ public class Planet : MonoBehaviour
         GameObject obj;
         obj = Instantiate(this.gameObject, this.transform.position, this.transform.rotation);
         DestroyImmediate(obj.GetComponent<Planet>());
-        obj.AddComponent<SphereCollider>();
+        obj.transform.parent = this.transform.parent;
         lodSelector.LODLevelObjects.Add(obj);
 
         if (destroyChilds != 0)
