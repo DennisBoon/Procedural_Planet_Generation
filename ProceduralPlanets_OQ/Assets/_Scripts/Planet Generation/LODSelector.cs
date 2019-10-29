@@ -17,7 +17,7 @@ public class LODSelector : MonoBehaviour
     {
         Debug.Log("CREATING LOD GROUP WITH " + LODLevelObjects.Count + " LOD LEVELS");
         childGameObjects = new GameObject[LODLevelObjects.Count][];
-        Renderer[] allDrawables = new Renderer[6];
+        MeshRenderer[] allDrawables = new MeshRenderer[6];
         LOD[] lods = new LOD[LODLevelObjects.Count];
         int lodLevel = LODLevelObjects.Count - 1, childGameObjectArray = 0;
 
