@@ -395,6 +395,31 @@ PrefabInstance:
       propertyPath: Acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 131988773085673982, guid: ac1cc0c94543ed349a93d23689297910,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1156.5142
+      objectReference: {fileID: 0}
+    - target: {fileID: 131988773085673982, guid: ac1cc0c94543ed349a93d23689297910,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131988773085673982, guid: ac1cc0c94543ed349a93d23689297910,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131988773085673982, guid: ac1cc0c94543ed349a93d23689297910,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131988773085673982, guid: ac1cc0c94543ed349a93d23689297910,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -446.94092
+      objectReference: {fileID: 0}
     - target: {fileID: 131988773085673980, guid: ac1cc0c94543ed349a93d23689297910,
         type: 3}
       propertyPath: m_textInfo.characterCount
