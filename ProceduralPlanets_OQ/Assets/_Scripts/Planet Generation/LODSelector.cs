@@ -19,7 +19,7 @@ public class LODSelector : MonoBehaviour
         childGameObjects = new GameObject[LODLevelObjects.Count][];
         MeshRenderer[] allDrawables = new MeshRenderer[6];
         LOD[] lods = new LOD[LODLevelObjects.Count];
-        int lodLevel = LODLevelObjects.Count - 1, childGameObjectArray = 0;
+        int lodLevel = 0, childGameObjectArray = 0;
 
         for (int i = 0; i < LODLevelObjects.Count; i++)
         {
@@ -33,7 +33,7 @@ public class LODSelector : MonoBehaviour
                 allDrawables[j] = go.GetComponent<MeshRenderer>();
             }
             lods[lodLevel].renderers = allDrawables;
-            lodLevel--; 
+            lodLevel++; 
             childGameObjectArray++;
         }
 

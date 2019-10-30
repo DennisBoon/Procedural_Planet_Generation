@@ -6,7 +6,7 @@ public class Planet : MonoBehaviour
 {
     [Range(2, 256)]
     public int[] resolutions;
-    public bool autoUpdate = true;
+    //public bool autoUpdate = true;
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
     public FaceRenderMask faceRenderMask;
 
@@ -64,7 +64,7 @@ public class Planet : MonoBehaviour
 
                     meshObj.AddComponent<MeshRenderer>();
                     meshFilters[meshFilterArray][i] = meshObj.AddComponent<MeshFilter>();
-                    meshFilters[meshFilterArray][i].mesh = new Mesh();
+                    meshFilters[meshFilterArray][i].sharedMesh = new Mesh();
                 }   
                 meshFilters[meshFilterArray][i].GetComponent<MeshRenderer>().material = colourSettings.planetMaterial;
                 terrainFaces[terrainFaceArray][i] = new TerrainFace(shapeGenerator, meshFilters[meshFilterArray][i].sharedMesh, resolutions[resolution], directions[i]);
