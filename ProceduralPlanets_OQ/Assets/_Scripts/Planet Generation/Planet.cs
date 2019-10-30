@@ -20,7 +20,8 @@ public class Planet : MonoBehaviour
 
     ShapeGenerator shapeGenerator = new ShapeGenerator();
     ColourGenerator colourGenerator = new ColourGenerator();
-    LODSelector lodSelector;
+    //LODSelector lodSelector;
+    LODSwapper lodSwapper;
 
     [SerializeField, HideInInspector]
     MeshFilter[][] meshFilters;
@@ -34,8 +35,11 @@ public class Planet : MonoBehaviour
     {
         meshFilters = new MeshFilter[resolutions.Length][];
         terrainFaces = new TerrainFace[resolutions.Length][];
-        lodSelector = transform.parent.GetComponent<LODSelector>();
-        lodSelector.LODLevelObjects.Clear();
+        //lodSelector = transform.parent.GetComponent<LODSelector>();
+        //lodSelector.LODLevelObjects.Clear();
+        lodSwapper = transform.parent.GetComponent<LODSwapper>();
+        lodSwapper.LODObjects.Clear();
+
         GeneratePlanet();
     }
 
@@ -76,7 +80,7 @@ public class Planet : MonoBehaviour
             meshFilterArray++;
             resolution++;
         }
-        lodSelector.CreateLODGroup();
+        //lodSelector.CreateLODGroup();
         this.gameObject.SetActive(false);
     }
 
@@ -135,8 +139,8 @@ public class Planet : MonoBehaviour
         GameObject obj;
         obj = Instantiate(this.gameObject, this.transform.position, this.transform.rotation);
         DestroyImmediate(obj.GetComponent<Planet>());
-        obj.transform.parent = this.transform.parent;
-        lodSelector.LODLevelObjects.Add(obj);
+        //obj.transform.parent = this.transform.parent;
+        lodSwapper.LODObjects.Add(obj);
 
         if (destroyChilds != 0)
         {

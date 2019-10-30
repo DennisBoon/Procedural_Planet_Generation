@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BeltSpawner : MonoBehaviour
 {
     [Header("Spawner Settings")]
@@ -55,8 +56,25 @@ public class BeltSpawner : MonoBehaviour
             worldPosition = transform.position + worldOffset;
 
             GameObject _asteroid = Instantiate(cubePrefabs[Random.Range(0, cubePrefabs.Length)], worldPosition, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-            _asteroid.AddComponent<BeltObject>().SetupBeltObject(Random.Range(minOrbitSpeed, maxOrbitSpeed), Random.Range(minRotationSpeed, maxRotationSpeed), gameObject, rotatingClockwise);
+            //_asteroid.AddComponent<BeltObject>().SetupBeltObject(Random.Range(minOrbitSpeed, maxOrbitSpeed), Random.Range(minRotationSpeed, maxRotationSpeed), gameObject, rotatingClockwise);
             _asteroid.transform.SetParent(transform);
         }
+
+        MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
+        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+
+        int j = 0;
+        while (j < meshFilters.Length)
+        {
+            combine[j].mesh = meshFilters[j].sharedMesh;
+            combine[j].transform = meshFilters[j].transform.localToWorldMatrix;
+            meshFilters[j].gameObject.SetActive(false);
+
+            j++;
+        }
+
+        transform.GetComponent<MeshFilter>().mesh = new Mesh();
+        transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
+        transform.gameObject.SetActive(true);
     }
 }
