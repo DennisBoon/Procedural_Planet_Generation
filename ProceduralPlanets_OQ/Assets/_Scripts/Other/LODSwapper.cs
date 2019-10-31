@@ -6,23 +6,23 @@ public class LODSwapper : MonoBehaviour
 {
     public List<GameObject> LODObjects = new List<GameObject>();
     public int[] LODRanges;
-    public GameObject player;
+    public Transform player;
 
     private void Update()
     {
         if (LODObjects != null)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) < LODRanges[0])
+            if (Vector3.Distance(transform.position, player.position) < LODRanges[0])
             {
                 Swap(LODObjects[LODObjects.Count - 1]);
             }
-            else if (Vector3.Distance(transform.position, player.transform.position) > LODRanges[0] &&
-                     Vector3.Distance(transform.position, player.transform.position) < LODRanges[1])
+            else if (Vector3.Distance(transform.position, player.position) > LODRanges[0] &&
+                     Vector3.Distance(transform.position, player.position) < LODRanges[1])
             {
                 Swap(LODObjects[LODObjects.Count - 2]);
             }
-            else if (Vector3.Distance(transform.position, player.transform.position) > LODRanges[1] &&
-                     Vector3.Distance(transform.position, player.transform.position) < LODRanges[2])
+            else if (Vector3.Distance(transform.position, player.position) > LODRanges[1] &&
+                     Vector3.Distance(transform.position, player.position) < LODRanges[2])
             {
                 Swap(LODObjects[LODObjects.Count - 3]);
             }
