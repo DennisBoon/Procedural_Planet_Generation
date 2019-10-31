@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LODObjects: []
   LODRanges: 10270000204e000030750000
-  player: {fileID: 229524293}
+  player: {fileID: 1666123738}
 --- !u!1001 &646293424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -867,6 +867,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1666123738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 131988772993837305, guid: ac1cc0c94543ed349a93d23689297910,
+    type: 3}
+  m_PrefabInstance: {fileID: 646293424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1812866754
 GameObject:
   m_ObjectHideFlags: 0

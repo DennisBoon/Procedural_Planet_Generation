@@ -61,20 +61,25 @@ public class BeltSpawner : MonoBehaviour
         }
 
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
-        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+        List<MeshFilter> meshFilter = new List<MeshFilter>();
 
-        int j = 0;
-        while (j < meshFilters.Length)
+        for (int j = 1; j < meshFilters.Length; j++)
         {
-            combine[j].mesh = meshFilters[j].sharedMesh;
-            combine[j].transform = meshFilters[j].transform.localToWorldMatrix;
-            meshFilters[j].gameObject.SetActive(false);
+            meshFilter.Add(meshFilters[j]);
+            CombineInstance[] combine = new CombineInstance[meshFilter.Count];
+            int np = 0;
 
-            j++;
+            while (np < meshFilter.Count)
+            {
+                combine[np].mesh = meshFilter[np].sharedMesh;
+                combine[np].transform = meshFilter[np].transform.localToWorldMatrix;
+                meshFilter[np].gameObject.SetActive(false);
+                np++;
+            }
         }
 
-        transform.GetComponent<MeshFilter>().mesh = new Mesh();
-        transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
-        transform.gameObject.SetActive(true);
+        //transform.GetComponent<MeshFilter>().mesh = new Mesh();
+        //transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
+        //transform.gameObject.SetActive(true);
     }
 }
